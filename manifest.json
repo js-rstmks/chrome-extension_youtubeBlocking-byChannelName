@@ -1,0 +1,21 @@
+{
+    "name": "youtube channel blocker",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Blocks and redirects sites",
+    "permissions": [
+      "notifications"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": [
+            "js/app.js"
+          ]
+        }
+    ],
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Latest Covid Report"
+    }
+  }
