@@ -3,14 +3,16 @@
     "version": "1.0",
     "manifest_version": 3,
     "description": "Blocks and redirects sites",
-    "permissions": [
-      "notifications"
-    ],
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["https://*/*"],
+    "background": {
+        "service_worker": "js/background.js"
+      },
     "content_scripts": [
         {
             "matches": ["*://*.youtube.com/*"],
             "js": [
-            "js/app.js"
+            "js/ContentScript.js"
           ]
         }
     ],
