@@ -1,13 +1,11 @@
-let blackList = []
-
-const API_KEY = 'AIzaSyBNTsy_ilAP1XecHoqTu3CK_23-25G05eU';
-
-let VIDEO_ID = 'GIlONd2h1Ec';
-
 const blockChannel = async () => {
 
     let youtubeURL = window.location.href
     let youtubeURL2 = new URL(youtubeURL)
+
+    console.log('aoiuoiueoiu oiu')
+
+    console.log(youtubeURL)
 
     VIDEO_ID = youtubeURL2.search.split("v=")
 
@@ -25,9 +23,7 @@ const blockChannel = async () => {
         let channel_name = decodeURI(splitUrl[1])
 
         if (blackList.includes(channel_name)) {
-            window.location.assign(
-                "https://www.investopedia.com/"
-            )
+
         }
     } else {
 
@@ -37,26 +33,30 @@ const blockChannel = async () => {
         console.log(blackList)
 
     
-        const response2 = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${VIDEO_ID}&key=${API_KEY}`)
-        const data2 = await response2.json()
+        let response2 = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${VIDEO_ID}&key=${API_KEY}`)
+        let data2 = await response2.json()
+
+        console.log(VIDEO_ID)
+
+        console.log(data2)
+        console.log(data2.items.length)
+
+        // 特定の動画にアクセスした際に、youtube data apiのレスポンスがなぜか、空なんです。。。。
+        if (data2.items.length === 0) {
+            let response2 = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${VIDEO_ID}&key=${API_KEY}`)
+            let data2 = await response2.json()
+        }
 
         console.log(data2)
         let channel_name = data2.items[0].snippet.channelTitle
 
         if (blackList.includes(channel_name)) {
-            window.location.assign(
-                "https://www.investopedia.com/"
-            )
+            // window.location.assign(
+            //     "https://www.investopedia.com/"
+            // )
         }
 
     }
 
 
 }
-
-blockChannel()
-
-// -------------------------------------------------------------
-
-
-
