@@ -10,7 +10,6 @@ chrome.tabs.onUpdated.addListener((tabId, tab) => {
         console.log(urlParameters)
 
         chrome.tabs.sendMessage(tabId, {
-            type: "NEW",
             videoId: urlParameters.get("v"),
         });
     }

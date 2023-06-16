@@ -26,7 +26,7 @@ const blockChannel = async (videoId) => {
 }
 
 chrome.runtime.onMessage.addListener((obj, sender, response) => {
-    const { type, value, videoId } = obj;
+    const { videoId } = obj;
 
     blockChannel(videoId)
 
