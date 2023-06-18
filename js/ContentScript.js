@@ -5,7 +5,7 @@ const blockChannel = async (videoId) => {
 
     console.log(videoId)
 
-    const response2 = await fetch('https://witorz.com/api/return', {
+    const response2 = await fetch('https://witorz.com/api/return_channel', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
