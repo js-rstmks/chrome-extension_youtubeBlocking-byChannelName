@@ -12,7 +12,13 @@
         {
             "matches": ["*://*.youtube.com/*"],
             "js": [
-            "js/ContentScript.js"
+            "js/youtubeBlock.js"
+          ]
+        },
+        {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": [
+            "js/wordBlock.js"
           ]
         }
     ],
