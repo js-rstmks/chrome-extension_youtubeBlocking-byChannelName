@@ -5,7 +5,7 @@ const blockChannel = async (videoId) => {
 
     console.log(videoId)
 
-    const response2 = await fetch('https://witorz.com/api/return', {
+    const response2 = await fetch('https://witorz.com/api/return_channel', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const blockChannel = async (videoId) => {
 }
 
 chrome.runtime.onMessage.addListener((obj, sender, response) => {
-    const { type, value, videoId } = obj;
+    const { videoId } = obj;
 
     blockChannel(videoId)
 
